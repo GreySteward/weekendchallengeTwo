@@ -8,7 +8,7 @@ function getData() {
         url: "/data",
         success: function (data) {
             console.log(data);
-            showPerson(data.people, currentlySelectedPerson);
+
             $.each(data.people, function (i, person) {
                 $('#ajax-data').append('<div class="person"></div>');
                 var $el = $('#ajax-data').children().last();
@@ -18,7 +18,7 @@ function getData() {
                 $el.append('<p>' + person.favoriteSong + '</p>');
                 $el.append('<p>' + person.avatar + '</img');
             });
-
+            showPerson(data.people, currentlySelectedPerson);
         },
         error: function () {
             console.log('ERROR: Unable to contact the server.');
